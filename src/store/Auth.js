@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import jwt from "jsonwebtoken";
+import { jwtDecode } from "jwt-decode";
 
 export const tokenSlice = createSlice({
   name: "token",
@@ -13,7 +13,7 @@ export const tokenSlice = createSlice({
   },
   reducers: {
     SET_TOKEN: (state, action) => {
-      const jwtData = jwt.decode(action.payload);
+      const jwtData = jwtDecode(action.payload);
       state.authenticated = true;
       state.accessToken = action.payload;
       state.expireTime = jwtData.exp;
