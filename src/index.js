@@ -1,22 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import App from './App';
+import App from "./App";
+import GlobalStyle from "./assets/styles/GlobalStyle";
+import store from "./store";
 
-import './index.css';
-import GlobalStyle from './assets/styles/GlobalStyle';
-import store from './store';
+import { Provider } from "react-redux";
+import { CookiesProvider } from "react-cookie";
 
-import { Provider } from 'react-redux';
-import { CookiesProvider } from 'react-cookie';
+import "./index.css";
 
-
-ReactDOM.render(
-    <CookiesProvider>
-        <Provider store={store}>
-            <GlobalStyle />
-            <App />
-        </Provider>
-    </CookiesProvider>,
-    document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <CookiesProvider>
+    <Provider store={store}>
+      <GlobalStyle />
+      <App />
+    </Provider>
+  </CookiesProvider>
 );
