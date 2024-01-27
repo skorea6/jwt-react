@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
-import '../fonts/SUIT.css';
-import '../fonts/SUIT-Variable.css'
+import { createGlobalStyle } from "styled-components";
+import "../fonts/SUIT.css";
+import "../fonts/SUIT-Variable.css";
 
 const GlobalStyle = createGlobalStyle`
 
