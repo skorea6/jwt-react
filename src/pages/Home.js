@@ -21,7 +21,7 @@ function Home() {
             <p>Gender: {gender || ""}</p>
           </>
         ) : (
-          <p>로그인 유저가 아닙니다.</p>
+          <p>로그인 유저가 아닙니다!</p>
         )}
       </div>
 
