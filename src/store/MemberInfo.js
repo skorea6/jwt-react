@@ -10,6 +10,7 @@ export const MemberInfoSlice = createSlice({
     gender: null,
     birthDate: null,
     userType: null,
+    imageUrl: null,
   },
   reducers: {
     SET_MEMBER_INFO: (state, action) => {
@@ -21,6 +22,7 @@ export const MemberInfoSlice = createSlice({
       state.gender = data.gender;
       state.birthDate = data.birthDate;
       state.userType = data.userType;
+      state.imageUrl = data.imageUrl;
     },
     DELETE_MEMBER_INFO: (state) => {
       state.userId = null;
@@ -30,6 +32,7 @@ export const MemberInfoSlice = createSlice({
       state.gender = null;
       state.birthDate = null;
       state.userType = null;
+      state.imageUrl = null;
     },
   },
 });

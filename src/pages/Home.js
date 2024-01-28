@@ -2,26 +2,39 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Home() {
-  const { userId, email, nick, name, gender } = useSelector(
+  const { userId, email, nick, name, gender, imageUrl } = useSelector(
     (state) => state.memberInfo
   );
+
+  const bgColor = userId ? "bg-green-100" : "bg-rose-100";
 
   return (
     <div className="container mx-auto p-4 max-w-md w-full">
       <h1 className="text-3xl font-bold mb-4">홈 화면</h1>
 
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div className={`${bgColor} shadow-md rounded px-8 pt-6 pb-8 mb-4`}>
         {userId ? (
           <>
-            <p className="text-xl font-bold mb-4">환영합니다!</p>
-            <p>UserID: {userId || ""}</p>
-            <p>Email: {email || ""}</p>
-            <p>Nickname: {nick || ""}</p>
-            <p>Name: {name || ""}</p>
-            <p>Gender: {gender || ""}</p>
+            <div className="flex flex-col items-center justify-center">
+              <p className="text-xl font-bold mb-4">환영합니다!</p>
+              {imageUrl && (
+                <img
+                  alt="프로필 사진"
+                  src={imageUrl}
+                  className="max-w-[100px] h-auto mb-4"
+                />
+              )}
+            </div>
+            {userId && <p>UserID: {userId}</p>}
+            {email && <p>Email: {email}</p>}
+            {nick && <p>Nickname: {nick}</p>}
+            {name && <p>Name: {name}</p>}
+            {gender && <p>Gender: {gender}</p>}
           </>
         ) : (
-          <p>로그인 유저가 아닙니다!</p>
+          <div className="flex flex-col items-center justify-center">
+            <p>로그인이 필요한 서비스입니다.</p>
+          </div>
         )}
       </div>
 
