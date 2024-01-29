@@ -25,11 +25,11 @@ function Home() {
                 />
               )}
             </div>
-            {userId && <p>UserID: {userId}</p>}
-            {email && <p>Email: {email}</p>}
-            {nick && <p>Nickname: {nick}</p>}
-            {name && <p>Name: {name}</p>}
-            {gender && <p>Gender: {gender}</p>}
+            {userId && <p>아이디: {userId}</p>}
+            {email && <p>이메일: {email}</p>}
+            {nick && <p>닉네임: {nick}</p>}
+            {name && <p>이름: {name}</p>}
+            {gender && <p>성별: {gender}</p>}
           </>
         ) : (
           <div className="flex flex-col items-center justify-center">
