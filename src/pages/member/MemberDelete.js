@@ -10,9 +10,10 @@ import { Modal } from "../../component/Modal";
 import { useSelector } from "react-redux";
 
 function MemberDelete() {
+  const navigate = useNavigate();
   const { userType } = useSelector((state) => state.memberInfo);
 
-  const navigate = useNavigate();
+  const [isApiLoading, setApiLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
 
   const [isMemberDeleteModalOpen, setIsMemberDeleteModalOpen] = useState(false);
@@ -34,6 +35,7 @@ function MemberDelete() {
   };
 
   const handleConfirmMemberDelete = async () => {
+    setApiLoading(true);
     const response = await deleteMember(apiRequestData);
 
     if (response.status) {
@@ -43,6 +45,7 @@ function MemberDelete() {
       setApiError(response.statusMessage);
       setIsMemberDeleteModalOpen(false);
     }
+    setApiLoading(false);
   };
 
   return (
@@ -67,6 +70,7 @@ function MemberDelete() {
         </form>
       </AuthContainer>
       <Modal
+        isApiLoading={isApiLoading}
         title={"진심으로 탈퇴 하시겠습니까?"}
         body={"탈퇴시 모든 정보가 삭제되어 복구할 수 없습니다."}
         isOpen={isMemberDeleteModalOpen}

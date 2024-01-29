@@ -18,6 +18,7 @@ function MemberLoginList() {
     useApiWithLoading(refreshTokenListAPI)
   );
 
+  const [isApiLoading, setApiLoading] = useState(false);
   const [refreshTokenList, setRefreshTokenList] = useState(null);
 
   const fetchRefreshTokenList = async () => {
@@ -56,6 +57,7 @@ function MemberLoginList() {
   };
 
   const handleConfirmLogoutAll = async () => {
+    setApiLoading(true);
     const response = await logoutAllAPI();
     if (response.status) {
       alert("성공적으로 모든 기기를 로그아웃 시켰습니다.");
@@ -65,9 +67,11 @@ function MemberLoginList() {
       setIsLogoutAllModalOpen(false);
       fetchRefreshTokenList();
     }
+    setApiLoading(false);
   };
 
   const handleConfirmLogout = async () => {
+    setApiLoading(true);
     const response = await deleteRefreshTokenAPI({ secret: selectedSecret });
     if (response.status) {
       alert("성공적으로 해당 기기를 로그아웃 시켰습니다.");
@@ -76,6 +80,7 @@ function MemberLoginList() {
     }
     setIsLogoutModalOpen(false);
     fetchRefreshTokenList();
+    setApiLoading(false);
   };
 
   return (
@@ -168,6 +173,7 @@ function MemberLoginList() {
         </div>
       </AuthContainer>
       <Modal
+        isApiLoading={isApiLoading}
         title={"해당 기기를 로그아웃 하시겠습니까?"}
         body={"로그아웃 반영까지 최대 30분이 소요될 수 있습니다."}
         isOpen={isLogoutModalOpen}
@@ -175,6 +181,7 @@ function MemberLoginList() {
         onConfirm={handleConfirmLogout}
       />
       <Modal
+        isApiLoading={isApiLoading}
         title={"모든 기기를 로그아웃 하시겠습니까?"}
         body={"로그아웃 반영까지 최대 30분이 소요될 수 있습니다."}
         isOpen={isLogoutAllModalOpen}

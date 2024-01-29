@@ -1,4 +1,11 @@
-export const Modal = ({ title, body, isOpen, onClose, onConfirm }) => {
+export const Modal = ({
+  isApiLoading,
+  title,
+  body,
+  isOpen,
+  onClose,
+  onConfirm,
+}) => {
   if (!isOpen) return null;
 
   return (
@@ -17,7 +24,10 @@ export const Modal = ({ title, body, isOpen, onClose, onConfirm }) => {
           </button>
           <button
             onClick={onConfirm}
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            disabled={isApiLoading}
+            className={`px-4 py-2 ${
+              isApiLoading ? "bg-red-300" : "bg-red-500 hover:bg-red-600"
+            } text-white rounded`}
           >
             네
           </button>
