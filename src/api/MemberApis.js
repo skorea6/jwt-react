@@ -24,3 +24,8 @@ export const updateMemberEmailCheckEmailAPI = async (data) => {
   const option = getApiRequestOptions("POST", data, true);
   return await apiRequest("/api/member/update/email/check", option);
 };
+
+export const deleteMember = async (data) => {
+  const option = getApiRequestOptions("POST", data, true);
+  return await apiRequest("/api/member/delete", option);
+};

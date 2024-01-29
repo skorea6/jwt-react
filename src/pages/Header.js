@@ -26,6 +26,12 @@ export default function Header() {
             >
               현재로그인목록
             </Link>
+            <Link
+              to="/member/delete"
+              className="link text-blue-500 hover:text-blue-700"
+            >
+              회원탈퇴
+            </Link>
           </>
         )}
         {/* <Link to="/test2" className="link text-blue-500 hover:text-blue-700">

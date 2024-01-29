@@ -55,4 +55,22 @@ const Button = ({ isApiLoading, color, icon: Icon, children }) => {
   );
 };
 
-export { Button };
+const ButtonNotLoading = ({ color, icon: Icon, children }) => {
+  const classes = colorClasses[color] || colorClasses.red; // 기본값 설정
+
+  return (
+    <button
+      type="submit"
+      className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${classes.background} focus:outline-none focus:ring-2 focus:ring-offset-2 ${classes.ring}`}
+    >
+      <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+        {Icon && (
+          <Icon className={`h-5 w-5 ${classes.text}`} aria-hidden="true" />
+        )}
+      </span>
+      {children}
+    </button>
+  );
+};
+
+export { Button, ButtonNotLoading };

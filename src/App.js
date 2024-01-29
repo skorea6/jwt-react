@@ -19,6 +19,7 @@ import FindPassword from "./pages/auth/find/findPassword";
 import FindPasswordReset from "./pages/auth/find/findPasswordReset";
 import MemberLoginList from "./pages/member/MemberLoginList";
 import { PageTitle } from "./component/PageTitle";
+import MemberDelete from "./pages/member/MemberDelete";
 
 function App() {
   return (
@@ -46,6 +47,15 @@ function App() {
                   <>
                     <PageTitle subTitle="로그인목록" />
                     <MemberLoginList />
+                  </>
+                }
+              />
+              <Route
+                path="/member/delete"
+                element={
+                  <>
+                    <PageTitle subTitle="회원탈퇴" />
+                    <MemberDelete />
                   </>
                 }
               />
