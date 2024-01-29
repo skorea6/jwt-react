@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Logout from "./pages/auth/Logout";
@@ -21,11 +21,23 @@ import MemberLoginList from "./pages/member/MemberLoginList";
 import { PageTitle } from "./component/PageTitle";
 import MemberDelete from "./pages/member/MemberDelete";
 import Footer from "./pages/Footer";
+import { useEffect } from "react";
+
+// Route 이동시 스크롤 맨위로 이동하기
+const ScrollToTop = () => {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return null;
+};
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <ScrollToTop />
         <LoadingContextProvider>
           <AutoIssueToken />
           <div className="flex flex-col min-h-screen">
