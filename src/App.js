@@ -41,8 +41,8 @@ function App() {
         <LoadingContextProvider>
           <AutoIssueToken />
           <div className="flex flex-col min-h-screen">
-            <main className="mb-auto">
-              <Header />
+            <Header />
+            <main className="mb-auto pt-32">
               <Routes>
                 <Route path="/" element={<PublicRoute element={Home} />} />
 

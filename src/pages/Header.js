@@ -5,7 +5,7 @@ export default function Header() {
   const { userId } = useSelector((state) => state.memberInfo);
 
   return (
-    <div className="header flex flex-col items-center justify-center text-center py-4">
+    <div className="header fixed top-0 w-full z-10 flex flex-col items-center justify-center text-center pt-4 bg-white">
       <h1 className="text-2xl font-bold mb-4">
         <Link to="/" className="text-purple-600 hover:text-purple-800">
           JWT 인증 사이트 + oAuth2
@@ -63,7 +63,7 @@ export default function Header() {
         )}
       </div>
 
-      <hr className="my-4 h-0.5 bg-gray-300 w-full" />
+      <hr className="mt-4 h-0.5 bg-gray-300 w-full" />
     </div>
   );
 }
