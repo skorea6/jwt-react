@@ -136,7 +136,7 @@ const SignUp = () => {
           </form>
         )}
 
-        <div className="text-center py-6">
+        <div className="text-center py-3">
           <span className="text-gray-500">회원이신가요?</span>
           <span className="mx-1"></span>
           <Link to="/auth/login" className="text-blue-500 hover:text-blue-700">
