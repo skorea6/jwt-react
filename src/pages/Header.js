@@ -8,7 +8,7 @@ export default function Header() {
     <div className="header flex flex-col items-center justify-center text-center py-4">
       <h1 className="text-2xl font-bold mb-4">
         <Link to="/" className="text-purple-600 hover:text-purple-800">
-          JWT 인증 사이트 - skorea6
+          JWT 인증 사이트 + oAuth2
         </Link>
       </h1>
       <div className="menu flex space-x-4">
